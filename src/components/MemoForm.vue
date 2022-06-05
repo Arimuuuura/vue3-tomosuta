@@ -28,6 +28,12 @@ export default {
 				title: this.title,
 				content: this.content
 			}
+
+			// 新規メモか既存メモの編集か判断
+			if(this.memo.id) {
+				memo.id = this.memo.id
+			}
+
 			// vuex に入力データを保存
 			this.$store.commit('save', memo);
 			// vueRouter でホーム画面に飛ばす

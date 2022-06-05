@@ -22,8 +22,16 @@ export default createStore({
   mutations: {
     // memo の保存
     save(state, newMemo) {
-      newMemo.id = ++state.count;
-      state.memos.unshift(newMemo)
+      if(newMemo.id) {
+        // 既存メモの編集
+        let x = state.memos.find(memo => newMemo.id === memo.id)
+        x.title = newMemo.title
+        x.content = newMemo.content
+      } else {
+        // 新規メモ
+        newMemo.id = ++state.count;
+        state.memos.unshift(newMemo)
+      }
     }
   },
   // 非同期通信
