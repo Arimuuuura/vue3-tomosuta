@@ -1,12 +1,24 @@
 <template>
   <div><input type="text"></div>
   <div><textarea name="" id="" cols="30" rows="10"></textarea></div>
-  <div class="center"><button>保存</button></div>
+  <div class="center">
+    <button @click="save">保存</button>
+  </div>
 </template>
 
 <script>
 export default {
-	name: 'MemoForm'
+	name: 'MemoForm',
+	methods: {
+		save() {
+			let memo = {
+				title: 'メモのタイトル',
+				content: 'メモの内容'
+			}
+
+			this.$store.commit('save', memo)
+		}
+	}
 }
 </script>
 
