@@ -2,7 +2,9 @@
   <div class="home">
     <ul v-if="hasMemos">
       <li v-for="memo in memos" :key="memo.id">
-      {{ `title: ${memo.title} content: ${memo.content}` }}
+      <router-link :to="{name: 'edit', params: {id: memo.id}}">
+      {{ `title: ${memo.title}` }}
+      </router-link>
       </li>
     </ul>
     <p v-else>No memo..</p>
