@@ -8,6 +8,12 @@ export default createStore({
   },
   // 状態の取得
   getters: {
+    getCount: (state) => {
+      return state.memos.length
+    },
+    getAll: (state) => {
+      return state.memos
+    }
   },
   // 更新関数
   mutations: {
