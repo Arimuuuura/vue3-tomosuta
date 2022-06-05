@@ -1,4 +1,4 @@
-# vue3-tomosuta
+# Vue3 + Vuex + VueRouter
 
 ## Project setup
 ```
