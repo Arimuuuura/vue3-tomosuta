@@ -1,18 +1,28 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ul v-if="hasMemos">
+      <li v-for="memo in memos" :key="memo.id">
+      {{ `title: ${memo.title} content: ${memo.content}` }}
+      </li>
+    </ul>
+    <p v-else>No memo..</p>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'HomeView',
-  components: {
-    HelloWorld
+  computed: {
+    memos() {
+      return this.$store.state.memos
+    },
+    hasMemos() {
+      return this.$store.state.memos.length
+    }
   }
 }
 </script>
+
+<style>
+
+</style>
