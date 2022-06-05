@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   // 現在の状態
   state: {
+    count: 0,
     memos: []
   },
   // 状態の取得
@@ -12,6 +13,7 @@ export default createStore({
   mutations: {
     // memo の保存
     save(state, newMemo) {
+      newMemo.id = state.count++;
       state.memos.unshift(newMemo)
     }
   },
