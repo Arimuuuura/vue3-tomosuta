@@ -7,6 +7,7 @@
   </div>
   <div class="center">
     <button @click="save">保存</button>
+    <button v-if="memo.id" @click="remove">削除</button>
   </div>
 </template>
 
@@ -37,6 +38,12 @@ export default {
 			// vuex に入力データを保存
 			this.$store.commit('save', memo);
 			// vueRouter でホーム画面に飛ばす
+			this.$router.push('/');
+		},
+		remove() {
+			// 削除ボタンが押されたら store の delete を呼ぶ
+			this.$store.commit('delete', this.memo.id);
+			// delete 後ホーム画面に飛ばす
 			this.$router.push('/');
 		}
 	}
