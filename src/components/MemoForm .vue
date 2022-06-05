@@ -25,8 +25,10 @@ export default {
 				title: this.title,
 				content: this.content
 			}
-
-			this.$store.commit('save', memo)
+			// vuex に入力データを保存
+			this.$store.commit('save', memo);
+			// vueRouter でホーム画面に飛ばす
+			this.$router.push('/');
 		}
 	}
 }
